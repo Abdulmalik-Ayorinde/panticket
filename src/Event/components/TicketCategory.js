@@ -11,7 +11,7 @@ function TicketCategory({ name, price, availableTicket }) {
 			</div>
 			<p className='ticket-price'>{price}</p>
 			<div className='quantity-container'>
-				<p>Quantity</p>
+				<p className='quantity'>Quantity</p>
 				<div className='quantity-counter'>
 					<p className='available-ticket'>{availableTicket}</p>
 					<p className='ticket-input'></p>

@@ -1,6 +1,7 @@
 import './content.css';
 import React from 'react';
 import TicketCategory from './TicketCategory';
+import BookTicket from './BookTicket';
 
 function Content() {
 	return (
@@ -18,10 +19,10 @@ function Content() {
 				</div>
 				<div className='event-info'>
 					<p className='info-title'>Date and Time</p>
-					<p className='info-description'>
+					<div className='info-description'>
 						<p className='date'>14th February, 2022</p>
 						<p className='time'>5PM Prompt</p>
-					</p>
+					</div>
 				</div>
 				<div className='event-info'>
 					<p className='info-title'>Venue</p>
@@ -39,8 +40,24 @@ function Content() {
 						price={'N10,000'}
 						availableTicket='10'
 					/>
+					<TicketCategory
+						name='Premium Ticket'
+						price={'N10,000'}
+						availableTicket='10'
+					/>
+					<TicketCategory
+						name='VIP Ticket'
+						price={'N10,000'}
+						availableTicket='10'
+					/>
+					<TicketCategory
+						name='VIP Ticket'
+						price={'N10,000'}
+						availableTicket='10'
+					/>
 				</div>
 			</div>
+			<BookTicket />
 		</section>
 	);
 }
