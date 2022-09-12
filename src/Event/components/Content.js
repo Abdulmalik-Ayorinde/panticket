@@ -2,6 +2,7 @@ import './content.css';
 import React from 'react';
 import TicketCategory from './TicketCategory';
 import BookTicket from './BookTicket';
+import TicketPayment from './TicketPayment';
 
 function Content() {
 	return (
@@ -57,7 +58,6 @@ function Content() {
 					/>
 				</div>
 			</div>
-			<BookTicket />
 		</section>
 	);
 }

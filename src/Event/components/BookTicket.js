@@ -1,6 +1,7 @@
 import React from 'react';
 import './bookticket.css';
 import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 function BookTicket() {
 	return (
@@ -17,16 +18,16 @@ function BookTicket() {
 						<path
 							d='M18 6L6 18'
 							stroke='#666670'
-							stroke-width='2'
-							stroke-linecap='round'
-							stroke-linejoin='round'
+							strokeWidth='2'
+							strokeLinecap='round'
+							strokeLinejoin='round'
 						/>
 						<path
 							d='M6 6L18 18'
 							stroke='#666670'
-							stroke-width='2'
-							stroke-linecap='round'
-							stroke-linejoin='round'
+							strokeWidth='2'
+							strokeLinecap='round'
+							strokeLinejoin='round'
 						/>
 					</svg>
 				</button>
@@ -46,6 +47,13 @@ function BookTicket() {
 							placeholder={'Enter Phone Number'}
 						/>
 					</div>
+					<div className='form-btn'>
+						<Button
+							onclick={() => console.log('Button Clicked')}
+							variation={'secondary'}
+							title='Make Payment'
+						/>
+					</div>
 				</form>
 				<div className='ticket-summary'>
 					<div className='ticket-type-group'>
@@ -59,7 +67,7 @@ function BookTicket() {
 						</p>
 					</div>
 					<div className='ticket-price-group'>
-						<p className='type-group'>
+						<p className='price-group'>
 							<span>Sub-total</span>
 							<span>(N2,000)</span>
 						</p>
