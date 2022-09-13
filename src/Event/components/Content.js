@@ -1,10 +1,8 @@
 import './content.css';
 import React from 'react';
 import TicketCategory from './TicketCategory';
-import BookTicket from './BookTicket';
-import TicketPayment from './TicketPayment';
 
-function Content() {
+function Content({ setModal }) {
 	return (
 		<section className='main-container'>
 			<div className='event-content-container'>
@@ -40,6 +38,7 @@ function Content() {
 						name='VIP Ticket'
 						price={'N10,000'}
 						availableTicket='10'
+						setModal={setModal}
 					/>
 					<TicketCategory
 						name='Premium Ticket'

@@ -4,13 +4,15 @@ import Button from '../../components/Button';
 import './bookticket.css';
 import './TicketPayment.css';
 
-function TicketPayment() {
+function TicketPayment({ setModal }) {
 	const [paymentMethod, setpaymentMethod] = useState('Card');
 	return (
 		<div className='booking-container'>
 			<div className='container-header'>
 				<p className='container-title'>Make Payment</p>
-				<button className='close-icon'>
+				<button
+					onClick={() => setModal((prevState) => !prevState)}
+					className='close-icon'>
 					<svg
 						width='24'
 						height='24'

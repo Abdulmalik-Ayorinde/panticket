@@ -1,21 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import Overlay from '../components/Overlay';
 import Banner from './components/Banner';
 import BookTicket from './components/BookTicket';
 import Content from './components/Content';
-import TicketPayment from './components/TicketPayment';
 
 function Event() {
+	const [modal, setModal] = useState(false);
 	return (
 		<>
-			<Overlay>
-				<BookTicket />
-			</Overlay>
+			{modal ? (
+				<Overlay>
+					<BookTicket setModal={setModal} />
+				</Overlay>
+			) : null}
+
 			<Navbar />
 			<Banner />
-			<Content />
+			<Content setModal={setModal} />
 			<Footer />
 		</>
 	);
