@@ -5,6 +5,7 @@
 	flex-direction: column;
 	align-items: center;
 	margin-top: 4rem;
+	gap: 4rem;
 }
 
 .main-ticket-container {

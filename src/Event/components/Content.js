@@ -2,6 +2,7 @@ import './content.css';
 import React from 'react';
 import TicketCategory from './TicketCategory';
 import EventInfo from './EventInfo';
+import OrganizerDescription from '../../components/OrganizerDescription';
 
 function Content({ setModal }) {
 	return (
@@ -42,6 +43,8 @@ function Content({ setModal }) {
 					/>
 				</div>
 			</div>
+
+			<OrganizerDescription />
 		</section>
 	);
 }
