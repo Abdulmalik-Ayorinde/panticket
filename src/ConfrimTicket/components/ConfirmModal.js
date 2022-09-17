@@ -1,63 +1,51 @@
 import React from 'react';
-import './confirm-modal.css';
-import Input from '../../components/Input';
+import ReactToPdf from 'react-to-pdf';
 import Button from '../../components/Button';
+import './PageContent.css';
+import PurchaseSummary from './PurchaseSummary';
+import EventInfo from './../../Event/components/EventInfo';
+import OrganizerDescription from '../../components/OrganizerDescription';
+import TicketDetails from './TicketDetails';
+// import ConfirmModal from './ConfirmModal';
 
-function ConfirmModal({ setModal }) {
-	function handleSubmit(event) {
-		event.preventDefault();
+function PageContent() {
+	const ref = React.createRef();
+	const btnref = React.createRef();
 
-		// console.log('Submitted');
+	function handlePdfComplete() {
+		ref.current.style.width = '100%';
+		btnref.current.style.display = 'flex';
 	}
 	return (
-		<>
-			<div className='confirm-ticket-container'>
-				<div className='container-header'>
-					<p className='container-title'>Confirm Ticket</p>
-					<button
-						onClick={() => setModal((prevState) => !prevState)}
-						className='close-icon'>
-						<svg
-							width='24'
-							height='24'
-							viewBox='0 0 24 24'
-							fill='none'
-							xmlns='http://www.w3.org/2000/svg'>
-							<path
-								d='M18 6L6 18'
-								stroke='#666670'
-								strokeWidth='2'
-								strokeLinecap='round'
-								strokeLinejoin='round'
-							/>
-							<path
-								d='M6 6L18 18'
-								stroke='#666670'
-								strokeWidth='2'
-								strokeLinecap='round'
-								strokeLinejoin='round'
-							/>
-						</svg>
-					</button>
-				</div>
-				<div className='ticket-form-container'>
-					<form onSubmit={handleSubmit} className='confirm-ticket-form'>
-						<div className='form-input'>
-							<Input
-								label={'Ticket Number'}
-								type='email'
-								placeholder={'Enter Ticket Number'}
+		<div ref={ref} className='page-content-container'>
+			<TicketDetails />
+			<PurchaseSummary titleState={false} />
+			<div ref={btnref} className='ticket-action-btn'>
+				<ReactToPdf targetRef={ref} onComplete={handlePdfComplete}>
+					{({ toPdf }) => (
+						<div>
+							<Button
+								onclick={() => {
+									ref.current.style.width = '800px';
+									btnref.current.style.display = 'none';
+									toPdf();
+								}}
+								variation={'secondary'}
+								title='Download ticket'
 							/>
 						</div>
-
-						<div className='form-btn'>
-							<Button variation={'secondary'} title='Verify Ticket' />
-						</div>
-					</form>
+					)}
+				</ReactToPdf>
+				<div>
+					<Button variation={'primary'} title='Share Event' />
 				</div>
 			</div>
-		</>
+			<EventInfo
+				eventDescription={`The play, "Pelumi," is a musical love story that revolves around Pelumi, a woman who was in a relationship with Adigun, a man with direction and purpose, but felt pressured by her mother to find love with someone else because of her mother's wealth and availability. You won’t want to miss this show on this year valentine.`}
+			/>
+			<OrganizerDescription />
+		</div>
 	);
 }
 
-export default ConfirmModal;
+export default PageContent;
