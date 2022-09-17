@@ -3,9 +3,18 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import './bookticket.css';
 import './TicketPayment.css';
+import { useNavigate } from 'react-router-dom';
 
 function TicketPayment({ setModal }) {
 	const [paymentMethod, setpaymentMethod] = useState('Card');
+
+	const navigate = useNavigate();
+
+	function handleSubmit(event) {
+		event.preventDefault();
+		navigate('/event/1/purchase');
+	}
+
 	return (
 		<div className='booking-container'>
 			<div className='container-header'>
@@ -55,7 +64,7 @@ function TicketPayment({ setModal }) {
 			</div>
 			<div className='ticket-form-container'>
 				{paymentMethod === 'Card' ? (
-					<form className='ticket-form'>
+					<form onSubmit={handleSubmit} className='ticket-form'>
 						<div className='form-input'>
 							<Input
 								label={'Card Number'}

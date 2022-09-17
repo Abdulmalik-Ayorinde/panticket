@@ -1,4 +1,5 @@
 import React from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import './confirm-modal.css';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -42,15 +43,18 @@ function ConfirmModal({ setModal }) {
 				</div>
 				<div className='ticket-form-container'>
 					<form onSubmit={handleSubmit} className='confirm-ticket-form'>
-						<div className='form-input'>
+						<div className='confirm-form-input'>
 							<Input
 								label={'Ticket Number'}
 								type='email'
 								placeholder={'Enter Ticket Number'}
 							/>
 						</div>
+						<div className='recaptcha-container' style={{ width: '300px' }}>
+							<ReCAPTCHA sitekey='6LeVGAMiAAAAAIEbEMaOo5cdfmijpmOupx7M4Bcg' />
+						</div>
 
-						<div className='form-btn'>
+						<div className='confirm-form-btn'>
 							<Button variation={'secondary'} title='Verify Ticket' />
 						</div>
 					</form>
