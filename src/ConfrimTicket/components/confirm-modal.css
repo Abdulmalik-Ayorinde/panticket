@@ -43,8 +43,16 @@
 	width: 100%;
 }
 
-.form-btn {
+.confirm-form-input {
+	width: 100%;
+}
+
+.confirm-form-btn {
 	margin-top: 1.5rem;
+	width: 100%;
+}
+
+.recaptcha-container {
 	width: 100%;
 }
 

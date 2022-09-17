@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactToPdf from 'react-to-pdf';
 import Button from '../../components/Button';
 import './PageContent.css';
 import PurchaseSummary from './PurchaseSummary';
@@ -8,14 +9,24 @@ import TicketDetails from './TicketDetails';
 import ConfirmModal from './ConfirmModal';
 
 function PageContent() {
+	const ref = React.createRef();
 	return (
-		<div className='page-content-container'>
+		<div ref={ref} className='page-content-container'>
 			<TicketDetails />
 			<PurchaseSummary titleState={false} />
 			<div className='ticket-action-btn'>
-				<div>
-					<Button variation={'secondary'} title='Download ticket' />
-				</div>
+				<ReactToPdf targetRef={ref} filename='recipt.pdf'>
+					{({ toPdf }) => (
+						<div>
+							<Button
+								onclick={toPdf}
+								variation={'secondary'}
+								title='Download ticket'
+							/>
+						</div>
+					)}
+				</ReactToPdf>
+
 				<div>
 					<Button variation={'primary'} title='Share Event' />
 				</div>

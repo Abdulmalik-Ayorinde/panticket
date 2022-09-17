@@ -9,9 +9,14 @@
 		"cra-template": "1.2.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
+<<<<<<< HEAD
 		"react-google-recaptcha-v3": "^1.10.0",
+=======
+		"react-google-recaptcha": "^2.1.0",
+>>>>>>> 811e517798cfb99ddaa322ec0387381c10c6a86d
 		"react-router-dom": "^6.3.0",
 		"react-scripts": "5.0.1",
+		"react-to-pdf": "^0.0.14",
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
