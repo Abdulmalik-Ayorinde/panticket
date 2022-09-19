@@ -8,13 +8,14 @@ import OrganizerDescription from '../../components/OrganizerDescription';
 import TicketDetails from './TicketDetails';
 // import ConfirmModal from './ConfirmModal';
 
-function PageContent() {
+function PageContent({ setModal }) {
 	const ref = React.createRef();
 	const btnref = React.createRef();
 
 	function handlePdfComplete() {
 		ref.current.style.width = '100%';
 		btnref.current.style.display = 'flex';
+		// setModal(false);
 	}
 	return (
 		<div ref={ref} className='page-content-container'>
@@ -29,6 +30,7 @@ function PageContent() {
 									ref.current.style.width = '800px';
 									btnref.current.style.display = 'none';
 									toPdf();
+									// setModal(true);
 								}}
 								variation={'secondary'}
 								title='Download ticket'
