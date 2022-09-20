@@ -27,6 +27,7 @@ function PageContent({ setModal }) {
 						<div>
 							<Button
 								onclick={() => {
+									console.log(ref);
 									ref.current.style.width = '800px';
 									btnref.current.style.display = 'none';
 									toPdf();

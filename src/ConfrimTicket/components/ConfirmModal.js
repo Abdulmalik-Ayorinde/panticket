@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './confirm-modal.css';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import {
-	GoogleReCaptcha,
-	GoogleReCaptchaProvider,
-} from 'react-google-recaptcha-v3';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 function ConfirmModal({ setModal }) {
-	const [token, setToken] = useState();
 	function handleSubmit(event) {
 		event.preventDefault();
 
@@ -54,14 +50,9 @@ function ConfirmModal({ setModal }) {
 								placeholder={'Enter Ticket Number'}
 							/>
 						</div>
-						<GoogleReCaptchaProvider
-							reCaptchaKey={process.env.REACT_APP_SITE_KEY}>
-							<GoogleReCaptcha
-								onVerify={(token) => {
-									setToken(token);
-								}}
-							/>
-						</GoogleReCaptchaProvider>
+						<div className='recaptcha-container' style={{ width: '300px' }}>
+							<ReCAPTCHA sitekey='6LeVGAMiAAAAAIEbEMaOo5cdfmijpmOupx7M4Bcg' />
+						</div>
 
 						<div className='form-btn'>
 							<Button variation={'secondary'} title='Verify Ticket' />

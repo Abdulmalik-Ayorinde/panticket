@@ -7,7 +7,7 @@ function Card({ image, location, price, date, name, id }) {
 		<div className='card-container'>
 			<img src={`${image}`} alt='event' />
 			<div className='card-details'>
-				<Link to={'/event/1'}>
+				<Link to={`/event/${id}`}>
 					<p className='name'>{name}</p>
 				</Link>
 
