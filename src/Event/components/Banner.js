@@ -1,13 +1,21 @@
 import React from 'react';
 import './banner.css';
-function Banner() {
+function Banner({ eventDesc }) {
 	return (
 		<div className='banner'>
-			<img src='/image/event-banner.png' alt='Event Banner' />
-			<div className='banner-caption'>
-				<div className='banner-title'>Pelumi</div>
-				<p className='banner-description'>A musical play by Muyiwa Adigun</p>
-			</div>
+			{eventDesc ? (
+				<>
+					<img src={eventDesc?.image} alt='Event Banner' />
+					<div className='banner-caption'>
+						<div className='banner-title'>{eventDesc?.name}</div>
+						<p className='banner-description'>
+							{`A ${eventDesc?.category.name} by ${eventDesc?.organizer.name}`}
+						</p>
+					</div>
+				</>
+			) : (
+				<h1>loading ...</h1>
+			)}
 		</div>
 	);
 }

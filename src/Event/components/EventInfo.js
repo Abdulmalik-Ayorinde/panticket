@@ -1,7 +1,10 @@
+import moment from 'moment';
 import React from 'react';
 import './event-info.css';
 
-function EventInfo({ eventDescription, dateTime, eventVenue }) {
+function EventInfo({ eventDescription, dateTime, eventVenue, time }) {
+	const date = moment(dateTime);
+
 	return (
 		<div className='event-content-container'>
 			{eventDescription ? (
@@ -14,8 +17,8 @@ function EventInfo({ eventDescription, dateTime, eventVenue }) {
 				<div className='event-info'>
 					<p className='info-title'>Date and Time</p>
 					<div className='info-description'>
-						<p className='date'>{dateTime}</p>
-						<p className='time'>5PM Prompt</p>
+						<p className='date'>{moment(date).format(' Do MMMM YYYY')}</p>
+						<p className='time'>{time}</p>
 					</div>
 				</div>
 			) : null}

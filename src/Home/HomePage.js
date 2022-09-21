@@ -16,7 +16,6 @@ function HomePage() {
 				'https://panticket-server.herokuapp.com/event'
 			);
 			setAllEvents(data.events);
-			console.log(data.events);
 		}
 		getEvents();
 	}, []);
@@ -70,20 +69,25 @@ function HomePage() {
 				<div className='event-container'>
 					<p className='section-title'>Featured Events</p>
 					<div className='featured-section'>
-						<BigCard
-							name='The Concert'
-							image={'/image/image.png'}
-							location='Lagos'
-							price='N2000'
-							discount='Get 20% off'
-						/>
-						<BigCard
-							name='The Concert'
-							image={'/image/image.png'}
-							location='Lagos'
-							price='N2000'
-							discount='Get 20% off'
-						/>
+						{allEvents ? (
+							allEvents.map((event) => {
+								if (event.isFeatured) {
+									return (
+										<BigCard
+											key={event._id}
+											name={event.name}
+											image={event.image || '/image/image.png'}
+											location={event.location}
+											price={'N2000'}
+											discount='Get 20% off'
+										/>
+									);
+								}
+								return null;
+							})
+						) : (
+							<h1>loading...</h1>
+						)}
 					</div>
 				</div>
 			</section>
